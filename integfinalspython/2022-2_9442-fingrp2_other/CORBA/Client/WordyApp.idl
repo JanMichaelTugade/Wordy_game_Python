@@ -1,0 +1,33 @@
+module WordyApp{
+
+    typedef sequence<string> array;
+
+    interface WordyGame{
+
+      string login(in string username, in string password,in string result);
+      void logout(in string username);
+      boolean register(in string username, in string password);
+      long getUserIDFromUsername(in string username);
+      array getPlayerList();
+      array getFiveLongestWords();
+      array getTopFivePlayers();
+      array getWordsData();
+      string getRandomLetters(in long roundNumber);
+      boolean validateInput(in string randomLetters, in string inputString, in array data);
+      void updateLongestWordFormed(in long userID, in string wordFormed, in string roomName);
+      void insertIntoLeaderboardTable(in long userID, in string longestWord, in long matchesWon);
+      void setLongestWordToNull(in string roomName);
+      long getLongestWordLength(in long userID);
+      void compareWordFormedToLongestWord(in long userID, in string wordFormed);
+      boolean checkPointsAchieved(in string roomName);
+      boolean checkExistingUserID(in long userID);
+      void updateMatchesWon(in long userID);
+      long modifyPointsAchieved(in long userID, in string roomName);
+      void startNewWaitingRoom();
+      boolean joinWaitingRoom(in string username);
+      void leaveWaitingRoom(in string username);
+      array checkWaitingRoomStatus();
+      long displayScores(in long userID);
+      array getPlayersInGameSession(in string roomName);
+    };
+};
